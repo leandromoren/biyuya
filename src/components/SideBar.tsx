@@ -6,13 +6,13 @@ export default function Sidebar() {
     <div className="h-full w-16 md:w-56 bg-black border-r border-gray-100 p-4 flex flex-col items-center md:items-start flex-shrink-0">
       <div className="flex items-center gap-2 mb-8 text-gray-800">
         <Wallet className="w-6 h-6 text-white" />
-        <span className="hidden md:block text-sm font-medium text-white">Biyuya</span>
+        <span className="hidden md:block text-sm font-medium text-white">BIYUHOY</span>
       </div>
       
       <nav className="flex-1 w-full">
         <ul className="space-y-4">
           {[
-            { icon: Home, label: 'Mercado', active: true , href: '/mercado'},
+            { icon: Home, label: 'Mercado', active: true , href: '/inicio'},
             { icon: LineChart, label: 'Cripto', href: '/cripto' },
             { icon: Bell, label: 'Brecha cambiaria' , href: '/brecha-cambiaria'},
             { icon: Settings, label: 'Cotizaciones', href: '/cotizaciones' },

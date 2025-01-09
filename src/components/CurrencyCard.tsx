@@ -38,34 +38,30 @@ export default function CurrencyCard() {
 
   return (
     <div className="p-4 ">
-      {/* Grid Layout con Tailwind */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {rates.map((rate, index) => (
           <div
             key={index}
-            className="bg-orange-600 border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow"
+            className="bg-gray-100 border border-t-green-700 shadow-lg p-4"
           >
-            {/* Título de la tarjeta */}
-            <div className="font-bold text-xl mb-2 text-white pb-3">
-              {rate.nombre}
+            <div className="font-bold text-xl mb-2 text-gray-600 pb-3">
+              DÓLAR {rate.nombre.toUpperCase()}
             </div>
 
-            {/* Datos del cambio */}
             <div className="mb-2 pb-3">
-              <div className="text-gray-200">
-                <span className="font-semibold">Compra: </span>$
-                {rate.compra.toFixed(2)}
+              <div className="text-gray-600">
+                <span className="font-semibold">Compra: </span>
+                <span className="text-green-700 font-bold">${rate.compra.toFixed(2)}</span>
               </div>
-              <div className="text-gray-200">
-                <span className="font-semibold">Venta: </span>$
-                {rate.venta.toFixed(2)}
+              <div className="text-gray-600">
+                <span className="font-semibold">Venta: </span>
+                <span className="text-green-700 font-bold">${rate.venta.toFixed(2)}</span>
               </div>
             </div>
 
-            {/* Información de actualización */}
-            <div className="text-sm text-gray-300">
+            <div className="text-sm text-gray-700">
               <Clock className="inline-block mr-2" />
-              Última actualización: {rate.fechaActualizacion.toLocaleString()}
+              Última actualización a las <strong className="text-green-700">{rate.fechaActualizacion.toTimeString()}</strong>
             </div>
           </div>
         ))}

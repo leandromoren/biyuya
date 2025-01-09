@@ -24,10 +24,10 @@ export default function MarketTicker() {
         <div className="flex gap-8">
           {rates.map((rate, index) => (
             <span key={index} className="inline-flex items-center text-xs sm:text-sm">
-              <span className="font-medium text-gray-600">{rate.nombre}</span>
-              <span className="mx-2 text-gray-500">${rate.venta.toFixed(2)}</span>
-              <span className="text-blue-500">
-                ${rate.compra.toFixed(2)}
+              <span className="font-medium text-gray-600">{rate.nombre}:</span>
+              <span className="mx-2 text-green-700">V ${rate.venta.toFixed(2)}</span>
+              <span className="text-gray-700">
+                C ${rate.compra.toFixed(2)}
               </span>
             </span>
           ))}
@@ -38,9 +38,9 @@ export default function MarketTicker() {
           {rates.map((rate, index) => (
             <span key={index + 1000} className="inline-flex items-center text-xs sm:text-sm">
               <span className="font-medium text-gray-600">{rate.nombre}</span>
-              <span className="mx-2 text-gray-500">${rate.venta.toFixed(2)}</span>
-              <span className="text-blue-500">
-                ${rate.compra.toFixed(2)}
+              <span className="mx-2 text-green-700">V ${rate.venta.toFixed(2)}</span>
+              <span className="text-gray-700">
+               C ${rate.compra.toFixed(2)}
               </span>
             </span>
           ))}
