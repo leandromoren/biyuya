@@ -17,10 +17,58 @@ const data = [
 ];
 
 export default function PriceChart() {
-  const maxValue = Math.max(...data.map(d => d.value));
-  const minValue = Math.min(...data.map(d => d.value));
-  const normalizeValue = (value: number) => 
-    ((value - minValue) / (maxValue - minValue)) * 100;
+  const [data, setData] = useState<{ date: string; value: number }[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://dolarapi.com/v1/dolares/blue");
+        const result = await response.json();
+
+        console.log("API response:", result); // Log the response to check its format
+
+        if (result && result.nombre === "Blue") {
+          const formattedData = {
+            date: result.fechaActualizacion.split("T")[0], // Assuming the date is in ISO format
+            value: result.venta, // Assuming 'venta' is the value you want to plot
+          };
+          setData([formattedData]);
+        } else {
+          console.error("Unexpected response format:", result);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const ctx = document.getElementById("myChart") as HTMLCanvasElement;
+    if (ctx && data.length > 0) {
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: data.map((d) => d.date),
+          datasets: [
+            {
+              label: "Cotización del Dólar Blue",
+              data: data.map((d) => d.value),
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    }
+  }, [data]);
 
   return (
     <div className="bg-white border border-gray-100 rounded-lg p-4 md:p-6">
