@@ -12,6 +12,10 @@ export default function CatalogoSection() {
     ? products
     : products.filter(p => p.category === selectedCategory);
 
+  const [showAllProducts, setShowAllProducts] = useState(false);
+
+  const displayedProducts = showAllProducts ? filteredProducts : filteredProducts.slice(0, 6);
+
   return (
     <section id="catalogo" className="py-24 bg-zinc-50 dark:bg-zinc-950">
       <div className="container mx-auto px-4 md:px-6">
@@ -51,7 +55,7 @@ export default function CatalogoSection() {
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-0 border-t border-l border-zinc-200 dark:border-zinc-800"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProducts.map((product, index) => (
+            {displayedProducts.map((product, index) => (
               <motion.div
                 key={product.id}
                 layout
@@ -64,17 +68,11 @@ export default function CatalogoSection() {
                 <div className="p-6 md:p-8 flex flex-col h-full">
                   <div className="flex justify-between items-start mb-6">
                     <div className="flex flex-col">
-                      <span className="flex items-center text-[10px] font-mono text-zinc-400 dark:text-zinc-500 mb-1 uppercase tracking-tighter">
-                        <Hash className="w-3 h-3 mr-1" />
-                        SKU: {String(product.id).padStart(4, '0')}
-                      </span>
                       <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-500 uppercase tracking-widest px-2 py-0.5 border border-emerald-600/20 rounded inline-block w-fit">
                         {product.category}
                       </span>
                     </div>
-                    <div className="w-12 h-12 bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center border border-zinc-100 dark:border-zinc-700">
-                      <Box className="w-5 h-5 text-zinc-400" />
-                    </div>
+                    
                   </div>
 
                   <div className="mb-6 relative aspect-square overflow-hidden border border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950">
@@ -122,30 +120,35 @@ export default function CatalogoSection() {
           </AnimatePresence>
         </motion.div>
 
-        <div className="mt-24 bg-zinc-900 dark:bg-white p-1 md:p-2">
-          <div className="border border-zinc-700 dark:border-zinc-200 p-8 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-left">
+        {filteredProducts.length > 6 && (
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={() => setShowAllProducts((v) => !v)}
+              className="px-6 py-3 bg-transparent border-2 border-zinc-900 dark:border-white text-zinc-900 dark:text-white font-black uppercase text-xs tracking-widest hover:bg-zinc-900 hover:text-white dark:hover:bg-white dark:hover:text-zinc-900 transition-all"
+            >
+              {showAllProducts ? "Ver menos" : `Ver más productos (${filteredProducts.length - 6} más)`}
+            </button>
+          </div>
+        )}
+
+        <div className="mt-24 bg-gradient-to-r from-zinc-900 to-zinc-800 dark:from-zinc-900 dark:to-zinc-950 p-8 md:p-16">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-left">
             <div className="max-w-xl">
-              <h4 className="text-3xl md:text-5xl font-black text-white dark:text-zinc-900 uppercase tracking-tighter leading-[0.9] mb-6">
-                ¿Necesita una <br />
-                <span className="text-emerald-500">medida especial?</span>
+              <h4 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6">
+                ¿Dudas sobre <br />
+                <span className="text-emerald-500">tu pedido?</span>
               </h4>
-              <p className="text-zinc-400 dark:text-zinc-500 text-lg font-medium">
-                Fabricamos bolsas y cajas a medida para su industria. Consulte por desarrollos personalizados y marcas propias.
+              <p className="text-zinc-300 text-lg font-medium">
+                Nuestro equipo está disponible para ayudarte con stock, entregas, facturación y más.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
               <a
-                href="https://wa.me/5491173748210?text=Hola! Me gustaría consultar por un desarrollo a medida"
+                href="https://wa.me/5491173748210?text=Hola! Me gustaría hablar con un asesor para resolver mis dudas sobre el pedido."
                 target="_blank"
                 className="bg-emerald-600 text-white px-10 py-5 text-xs font-black uppercase tracking-[0.2em] hover:bg-emerald-700 transition-all text-center"
               >
-                Hablar con un asesor
-              </a>
-              <a
-                href="#contacto"
-                className="bg-transparent border-2 border-white/20 dark:border-zinc-900/20 text-white dark:text-zinc-900 px-10 py-5 text-xs font-black uppercase tracking-[0.2em] hover:bg-white hover:text-zinc-900 dark:hover:bg-zinc-900 dark:hover:text-white transition-all text-center"
-              >
-                Ver Sucursales
+                Contactar Asesor
               </a>
             </div>
           </div>

@@ -14,7 +14,7 @@ export const products = [
     category: "Bolsas de Consorcio",
     presentation: "80x110 cm - Pack x 10 unidades",
     description: "Bolsas de alta densidad, ideales para consorcios y gastronomía.",
-    image: "https://images.unsplash.com/photo-1591193512857-993c1642938e?auto=format&fit=crop&q=80&w=800",
+    image: "./assets/bolsas_consorcio.png",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ export const products = [
     category: "Bolsas Camiseta",
     presentation: "40x50 cm - Pack x 100 unidades",
     description: "Ideal para comercios minoristas, resistente y práctica.",
-    image: "https://images.unsplash.com/photo-1605648916319-cf082f7524a1?auto=format&fit=crop&q=80&w=800",
+    image: "./assets/bolsas_camiseta.png",
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const products = [
     category: "Cajas de Pizza",
     presentation: "33x33 cm - Pack x 50 unidades",
     description: "Cartón virgen de alta calidad, mantiene el calor y la rigidez.",
-    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=800",
+    image: "./assets/cajas_pizza.png",
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ export const products = [
     category: "Papel y Rollos",
     presentation: "8 rollos x 300 metros",
     description: "Doble hoja, máxima suavidad y rendimiento para empresas.",
-    image: "https://images.unsplash.com/photo-1584556812952-905ffd0c611a?auto=format&fit=crop&q=80&w=800",
+    image: "./assets/papel_higienico.png",
   },
   {
     id: 5,
@@ -46,7 +46,7 @@ export const products = [
     category: "Otros Descartables",
     presentation: "50 cm x 500 mts",
     description: "Transparente, alta adherencia para embalaje industrial.",
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800",
+    image: "./assets/film_stretch.png",
   },
   {
     id: 6,
@@ -54,6 +54,6 @@ export const products = [
     category: "Bolsas de Consorcio",
     presentation: "60x90 cm - Pack x 50 unidades",
     description: "Color verde para reciclables, reforzada.",
-    image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&q=80&w=800",
+    image: "./assets/bolsas_residuos.png",
   },
 ];
