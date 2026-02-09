@@ -4,6 +4,7 @@ import Headers from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import CatalogoSection from "@/components/Catalogo";
 import Footer from "@/components/Footer";
+import { AboutSection } from "@/components/About";
 
 export default function App() {
   return (
@@ -16,6 +17,9 @@ export default function App() {
       </section>
       <section>
         <CatalogoSection />
+      </section>
+      <section>
+        <AboutSection />
       </section>
       <section>
         <Footer />

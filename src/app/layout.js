@@ -1,20 +1,8 @@
-//import localFont from "next/font/local";
 import "../styles/globals.css";
 
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
-
 export const metadata = {
-  title: "BIYUHOY",
-  description: "Conocé el valor real del dolar en el país",
+  title: "PAPELERA MOREN",
+  description: "Mejores precios en papelera industrial. Venta de bolsas, film stretch, cintas adhesivas, guantes y más. ¡Contáctanos hoy!",
 };
 
 export default function RootLayout({ children }) {
